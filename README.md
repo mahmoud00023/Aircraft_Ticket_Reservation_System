@@ -26,4 +26,13 @@
 2. [x] Second item
 3. [ ] Third item
 
+<div>
+  <input type="checkbox" name="uchk">
+  <label for="uchk">Unchecked.</label>
+</div>
+<div>
+  <input type="checkbox" name="chk" checked>
+  <label for="chk">Checked.</label>
+</div>
+
 
