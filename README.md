@@ -4,7 +4,7 @@
 
 ## TO-DOs
 - ### Ebrahim To Do
-1. [ ] First item
+1. [x] First item
 2. [ ] Second item
 3. [ ] Third item
 
