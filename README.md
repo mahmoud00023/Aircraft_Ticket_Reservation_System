@@ -4,26 +4,26 @@
 
 ## TO-DOs
 - ### Ebrahim To Do
-1. []First item
-2. []Second item
-3. []Third item
+1. [] First item
+2. [] Second item
+3. [] Third item
 
 
 - ### Yosef To Do
-1. []First item
-2. []Second item
-3. []Third item
+1. [] First item
+2. [] Second item
+3. [] Third item
 
 
 - ### Mahmoud To Do
-1. []First item
-2. []Second item
-3. []Third item
+1. [] First item
+2. [] Second item
+3. [] Third item
 
 
 - ### Ahmed To Do
-1. []First item
-2. []Second item
-3. []Third item
+1. [] First item
+2. [] Second item
+3. [] Third item
 
 
