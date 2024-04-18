@@ -22,8 +22,8 @@
 
 
 - ### Ahmed To Do
-1. [ ] First item
-2. [ ] Second item
+1. [x] First item
+2. [x] Second item
 3. [ ] Third item
 
 
