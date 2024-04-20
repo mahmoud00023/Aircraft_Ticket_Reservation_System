@@ -1,7 +1,7 @@
 
 #include <iostream>
 
-class Clint {
+class Manger {
 
     std::string name;
     int salary;
