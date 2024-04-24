@@ -11,7 +11,7 @@ int main()
 {
 
 	std::cout << "\nWelcome to PHOENIX Aircraft Ticket Reservation Program!\n\n";
-	std::cout << "============ PHOENIX ============\n\n";
+	std::cout << "======================= PHOENIX =======================\n\n";
 
 	// Taking homepage choices
 	std::cout << "1.Book a Ticket      2.Manger\n";
