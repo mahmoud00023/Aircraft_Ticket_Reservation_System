@@ -5,11 +5,7 @@
 
 // Functions
 
-static void ExitPhoenix() {
-	std::cout << "Good Luck!\n";
-	std::cout << "============ PHOENIX ============\n\n";
-	exit(0);
-}
+
 
 int main()
 {
