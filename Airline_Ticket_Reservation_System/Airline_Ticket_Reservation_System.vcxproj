@@ -24,6 +24,7 @@
     <ProjectGuid>{cdf64f1a-352d-4308-863a-064770478721}</ProjectGuid>
     <RootNamespace>AirlineTicketReservationSystem</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Aircraft_Ticket_Reservation_System</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -127,7 +128,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Airline_Ticket_Reservation_System.cpp" />
+    <ClCompile Include="Aircraft_Ticket_Reservation_System.cpp" />
+    <ClCompile Include="Client.cpp" />
+    <ClCompile Include="Manger.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Client.h" />
+    <ClInclude Include="Manger.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
