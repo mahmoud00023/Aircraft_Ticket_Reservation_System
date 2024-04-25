@@ -2,7 +2,7 @@
 
 Client::Client()
 {
-	std::cout << "============ PHOENIX ============\n\n";
+	std::cout << "====================== PHOENIX ======================\n\n";
 	setName();
 	setID();
 	setPhoneNum();
@@ -95,6 +95,11 @@ void Client::setToCountry()
 		}
 		std::cout << i + 1 - isReserved << '.' << availableCountries[i];
 
+		// Optimizing number of spaces between countries
+		for (int j = 0; j < 14 - availableCountries[i].length(); j++) {
+			std::cout << ' ';
+		}
+
 		// Check if the from country reserved
 		if (fromCountryIndex == i + 1) {
 			i++;
@@ -102,12 +107,6 @@ void Client::setToCountry()
 		}
 
 		if (i != 9) {
-
-			// Optimizing number of spaces between countries
-			for (int j = 0; j < 14 - availableCountries[i].length(); j++) {
-				std::cout << ' ';
-			}
-
 			std::cout << i + 2 - isReserved << '.' << availableCountries[i + 1];
 		}
 
