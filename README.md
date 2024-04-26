@@ -24,5 +24,5 @@
 - getIncome() // to get all incomes earned from clients today
 - getChairsNum() // to get all reserved chairs number today
 
-HINT : you need to apply inhertance from Client to Manger to get Client attributes.
+**HINT** : you need to apply inhertance from Client to Manger to get Client attributes.
 
