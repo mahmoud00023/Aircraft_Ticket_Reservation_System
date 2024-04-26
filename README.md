@@ -19,8 +19,10 @@
 
 
 - ### Ahmed To Do :-
+
 **HINT** : you need to apply inhertance from Client to Manger to get Client attributes.
 1. [ ] Modifying Manger class and add thoose functions :
+
 -> getOverall() // to get all inputs added from clients today
 -> getIncome() // to get all incomes earned from clients today
 -> getChairsNum() // to get all reserved chairs number today
