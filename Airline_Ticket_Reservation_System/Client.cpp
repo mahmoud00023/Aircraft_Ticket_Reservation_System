@@ -2,7 +2,7 @@
 
 Client::Client()
 {
-	std::cout << "============ PHOENIX ============\n\n";
+	std::cout << "====================== PHOENIX ======================\n\n";
 	setName();
 	setID();
 	setPhoneNum();
@@ -71,8 +71,8 @@ void Client::setFromCountry()
 void Client::setToCountry()
 {
 
-	// Getting from country index
-	short fromCountryIndex;
+	// Getting from country 
+	short fromCountryIndex{};
 	for (int i = 0; i < 10; i++)
 	{
 		if (availableCountries[i] == fromCountry) {
@@ -84,31 +84,30 @@ void Client::setToCountry()
 
 	std::cout << "\nWhich country will you go to? :-\n\n";
 	// Reserved country
-	bool x = 0; // x is bool to indicate if from country reserved
+	short isReserved = 0; // x is bool to indicate if from country reserved
 	for (int i = 0; i <= 9; i += 2)
 	{
 
 		// Check if the from country reserved
 		if(fromCountryIndex == i){
 			i++;
-			x++;
+			isReserved++;
 		}
-		std::cout << i + 1 - x << '.' << availableCountries[i];
+		std::cout << i + 1 - isReserved << '.' << availableCountries[i];
+
+		// Optimizing number of spaces between countries
+		for (int j = 0; j < 14 - availableCountries[i].length(); j++) {
+			std::cout << ' ';
+		}
 
 		// Check if the from country reserved
 		if (fromCountryIndex == i + 1) {
 			i++;
-			x++;
+			isReserved++;
 		}
 
 		if (i != 9) {
-
-			// Optimizing number of spaces between countries
-			for (int j = 0; j < 14 - availableCountries[i].length(); j++) {
-				std::cout << ' ';
-			}
-
-			std::cout << i + 2 - x << '.' << availableCountries[i + 1];
+			std::cout << i + 2 - isReserved << '.' << availableCountries[i + 1];
 		}
 
 		std::cout << '\n';
