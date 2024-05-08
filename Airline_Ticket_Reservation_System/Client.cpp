@@ -1,47 +1,49 @@
 #include "Client.h"
+#include "Manger.h"
 using namespace std;
 
 Client::Client()
 {
-	std::cout << "====================== PHOENIX ======================\n\n";
+	std::cout << "==================================== PHOENIX ====================================\n\n";
 
-	setSeatsNum();
+	int seatsNum = chooseSeatsNum();
+
 	for (int i = 0; i < seatsNum; i++)
 	{
 		setName();
 		setID();
 		setPhoneNum();
-		std::cout << "\n====================== PHOENIX ======================\n";
+		std::cout << "\n==================================== PHOENIX ====================================\n";
 		setFromCountry();
 		setToCountry();
 		setFlightType();
 		setPlan();
-		chooseSeat();
-
-		
+		chooseSeatPosition();
 
 
 	}
-	
 
 }
 
-void Client::setSeatsNum()
+
+
+int Client::chooseSeatsNum()
 {
 	std::cout << "How many seats will you take: ";
-	int seatNum;
-	
-
+	int numOfSeats;
 	do
 	{
-		std::cin >> seatNum;
-		if (seatNum < 1 || seatNum > 16) {
+		std::cin >> numOfSeats;
+		std::cout << '\n';
+		if (numOfSeats < 1 || numOfSeats > 16) {
 			std::cout << "You should choose a number between (1-16): ";
 		}
 		else {
-			this->seatsNum = seatNum;
+			this->seatsNum += numOfSeats;
 		}
-	} while (seatNum < 1 || seatNum > 16);
+	} while (numOfSeats < 1 || numOfSeats > 16);
+
+	return numOfSeats;
 
 }
 
@@ -71,7 +73,7 @@ void Client::setPhoneNum()
 
 void Client::setFromCountry()
 {
-	std::cout << "\nWhich country will you start from? :-\n\n";
+	std::cout << "\nWhich country will you start from?\n\n";
 	for (int i = 0; i <= 8; i+=2)
 	{
 		std::cout << i + 1 << '.' << availableCountries[i];
@@ -89,10 +91,9 @@ void Client::setFromCountry()
 	static short fromCountryNum;
 	std::cin >> fromCountryNum;
 	while (fromCountryNum < 1 || fromCountryNum > 10) {
-		std::cout << "Invalid number!\n";
+		std::cout << "\nInvalid number!\n";
 		std::cout << "Choose a country between (1,10) : ";
 		std::cin >> fromCountryNum;
-		std::cout << std::endl;
 	}
 	this->fromCountry.push_back(availableCountries[fromCountryNum - 1]);
 
@@ -113,7 +114,7 @@ void Client::setToCountry()
 	}
 
 
-	std::cout << "\nWhich country will you go to? :-\n\n";
+	std::cout << "\nWhich country will you go to?\n\n";
 	// Reserved country
 	short isReserved = 0; // x is bool to indicate if from country reserved
 	for (int i = 0; i <= 9; i += 2)
@@ -147,45 +148,44 @@ void Client::setToCountry()
 	std::cout << "Choose a country : ";
 	short toCountryNum;
 	std::cin >> toCountryNum;
+
 	while (toCountryNum < 1 || toCountryNum > 9) {
-		std::cout << "Invalid number!\n";
+		std::cout << "\nInvalid number!\n";
 		std::cout << "Choose a country between (1,9) : ";
 		std::cin >> toCountryNum;
-		std::cout << std::endl;
 	}
 
-	// Optimizing to country number after adding reserved from country
+	// Optimizing toCountry number after adding reserved fromCountry
 	if (toCountryNum >= fromCountryIndex + 1) {
 		this->toCountry.push_back(availableCountries[toCountryNum]);
 	}
 	else {
 		this->toCountry.push_back(availableCountries[toCountryNum - 1]);
 	}
-
-	std::cout << toCountry.back() << '\n';
+	std::cout << toCountry.back() << std::endl << std::endl;
 }
 
 void Client::setFlightType()
 {
-	int choose_type;
-	string flight_Type;
-	std::cout << "Choose your flight type : " << std::endl;
-	std::cout << "1) One-way          2) Round-trip" << std::endl;
-	std::cout << "Enter your choose : ";
-	std::cin >> choose_type;
-	if (choose_type == 1)
+	int chooseType;
+	string flightType;
+	std::cout << "Which flight type do you want? \n";
+	std::cout << "1) One-way          2) Round-trip\n\n";
+	std::cout << "Your flight type : ";
+	std::cin >> chooseType;
+	if (chooseType == 1)
 	{
-		flight_Type = "One_way";
-		std::cout << "One_way" << std::endl;
-		std::cout << "\n====================== PHOENIX ======================\n";
+		flightType = "One-way";
+		std::cout << "One-way" << std::endl;
+		std::cout << "\n==================================== PHOENIX ====================================\n";
 	}
-	else if (choose_type == 2)
+	else if (chooseType == 2)
 	{
-		flight_Type = "Round-trip";
+		flightType = "Round-trip";
 		std::cout << "Round-trip" << std::endl;
-		std::cout << "\n====================== PHOENIX ======================\n";
+		std::cout << "\n==================================== PHOENIX ====================================\n\n";
 	}
-	this->flight_Type = flight_Type;
+	this->flightType.push_back(flightType);
 }
 
 void Client::setPlan()
@@ -196,10 +196,10 @@ void Client::setPlan()
 	int plan3 = 15000;
 	int plan4 = 25000;
 
-	if (flight_type == "One-way")
+	if (flightType.back() == "One-way")
 	{
-
-		cout << "                 --> CHOOSE THE PLAN YOU WANT FOR ONE-WAY <--                " << endl << endl << endl;
+		cout << endl;
+		cout << "                 --> CHOOSE THE PLAN YOU WANT FOR ONE-WAY <--                 " << endl << endl << endl;
 
 		cout << "   *********************************     *********************************   " << endl;
 		cout << "   *                               *     *                               *   " << endl;
@@ -219,7 +219,7 @@ void Client::setPlan()
 		cout << "   *                               *     *                               *   " << endl;
 		cout << "   *********************************     *********************************   " << endl << endl << endl;
 
-		cout << "Enter your plan number : ";
+		cout << "Enter your Plan number : ";
 		cin >> PLAN;
 		while (PLAN < 0 || PLAN > 4)
 		{
@@ -251,10 +251,10 @@ void Client::setPlan()
 			break;
 		}
 	}
-	else if (flight_type == "Round-trip")
+	else if (flightType.back() == "Round-trip")
 	{
-
-	    cout << "                 --> CHOOSE THE PLAN YOU WANT FOR ROUND-TRIP <--                " << endl << endl << endl;
+		cout << endl;
+	    cout << "                 --> CHOOSE THE PLAN YOU WANT FOR ROUND-TRIP <--                 " << endl << endl << endl;
 	    
 	    cout << "   *********************************     *********************************   " << endl;
 	    cout << "   *                               *     *                               *   " << endl;
@@ -274,7 +274,7 @@ void Client::setPlan()
 	    cout << "   *                               *     *                               *   " << endl;
 	    cout << "   *********************************     *********************************   " << endl << endl << endl;
 
-        cout << "Enter your plan number : ";
+        cout << "Enter your Plan number : ";
         cin >> PLAN;
         while (PLAN < 0 || PLAN > 4)
         {
@@ -309,9 +309,11 @@ void Client::setPlan()
 	
 }
 
-void Client::chooseSeat()
+
+// I need to make seats exeption for reserved positions
+void Client::chooseSeatPosition()
 {
-	int seat;
+	int seatPosition;
 	cout << endl;
 	cout << "                             ----> CHOOSE THE SEAT YOU WANT <----                         " << endl << endl << endl;
 
@@ -345,19 +347,58 @@ void Client::chooseSeat()
 	cout << "   \\                                                                                   /  " << endl;
 	cout << "    \\                                                                                 /  " << endl << endl;
 
-	cout << "Enter your seat number : ";
-	cin >> seat;
+	cout << "Enter your seat position : ";
+	cin >> seatPosition;
 
-	while (seat < 0 || seat > 16)
+	while (seatPosition < 0 || seatPosition > 16)
 	{
-		cout << "SORRY, INVALID SEAT NUMBER, TRY ENTER THE SEAT NUMBER AGAIN: " << endl;
-		cin >> seat;
+		cout << "SORRY, INVALID SEAT NUMBER, TRY ENTER THE SEAT NUMBER AGAIN: ";
+		cin >> seatPosition;
 	}
-	this-> seat = seat;
-	cout << "DONE, WE SAVE YOUR ANSWER" << endl << endl;
-	cout << "\n==================================== PHOENIX ====================================\n";
+	this->reservedSeats.push_back(seatPosition);
+	cout << "DONE, YOU HAVE BOOKES SEAT " << seatPosition << endl << endl;
+	cout << "\n==================================== PHOENIX ====================================\n\n";
 }
 
+void Client::homePage() {
 
+	std::cout << "================== PHOENIX AIRCRAFT TICKET RESERVATION SYSTEM ==================" << endl << endl;
+
+	// Taking homepage choices
+	std::cout << "1.Book a Ticket      2.Manger\n";
+	std::cout << std::endl;
+	std::cout << "Your Choice: ";
+	short choice;
+	do {
+		std::cin >> choice;
+		std::cout << std::endl;
+		switch (choice)
+		{
+		case 1:
+			new Client();
+			break;
+		case 2:
+			new Manger();
+			break;
+
+		default:
+			std::cout << "Invalid number!\n";
+			std::cout << "Choose a number between (1,2) : ";
+		}
+	} while (choice < 1 || choice > 2);
+
+}
+
+// Static members difinitions
+
+int Client::seatsNum = 0;
+std::vector <std::string> Client::name;
+std::vector <std::string> Client::id;
+std::vector <std::string> Client::phoneNum;
+std::vector <std::string> Client::fromCountry;
+std::vector <std::string> Client::toCountry;
+std::vector <std::string> Client::flightType; // Round-trip or One-way ticket
+std::vector <std::string> Client::plan;
+std::vector <int> Client::reservedSeats;
 
 

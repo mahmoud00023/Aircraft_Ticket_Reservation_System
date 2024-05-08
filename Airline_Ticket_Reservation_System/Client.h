@@ -5,9 +5,9 @@
 class Client
 {
 
-private:
+protected:
 
-	int seatsNum;
+	static int seatsNum;
 	static std::vector <std::string> name;
 	static std::vector <std::string> id;
 	static std::vector <std::string> phoneNum; // string -> regex -> 11 number
@@ -21,6 +21,7 @@ private:
 	static std::vector <std::string> toCountry;
 	static std::vector <std::string> flightType; // Round-trip or One-way ticket
 	static std::vector <std::string> plan;
+	static std::vector <int> reservedSeats;
 
 	
 
@@ -28,8 +29,11 @@ public:
 	
 	Client(); // Constractor
 
+	// Home Page
+	static void homePage();
+
 	// Setters
-	void setSeatsNum();
+	int chooseSeatsNum();
 	void setName();
 	void setID();
 	void setPhoneNum();
@@ -37,7 +41,7 @@ public:
 	void setToCountry();
 	void setFlightType();
 	void setPlan();
-	void chooseSeat();
+	void chooseSeatPosition();
 
 
 	// Getters
@@ -49,4 +53,11 @@ public:
 
 
 };
+
+
+
+
+
+
+
 
