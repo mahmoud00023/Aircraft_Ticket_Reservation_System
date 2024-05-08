@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Client.h"
 #include "Manger.h"
+using namespace std;
 
 // Functions
 
@@ -10,16 +11,17 @@
 int main()
 {
 
-	std::cout << "\nWelcome to PHOENIX Aircraft Ticket Reservation Program!\n\n";
-	std::cout << "======================= PHOENIX =======================\n\n";
+	cout << "--------- <<< WELCOME TO PHOENIX AIRCRAFT TICKET RESERVATION SYSTEM >>> ---------" << endl << endl << endl;
 
 	// Taking homepage choices
-	std::cout << "1.Book a Ticket      2.Manger\n";
-	std::cout << std::endl;
-	std::cout << "Your Choice: ";
-	short choice;
-	std::cin >> choice;
-	std::cout << std::endl;
+	int choice;
+	cout << "*** PLEASE SELECT YOUR STATUS ***" << endl << endl;;
+	cout << "1.BOOK A TICKET      2.MANAGER" << endl;
+	cout << "ENTER YOUR CHOOES: ";
+	cin >> choice;
+	cout << endl;	
+	
+	cout << endl;
 	do {
 		switch (choice)
 		{
@@ -31,10 +33,10 @@ int main()
 			break;
 			
 		default:
-			std::cout << "Invalid number!\n";
-			std::cout << "Choose a number between (1,2) : ";
-			std::cin >> choice;
-			std::cout << std::endl;
+			cout << "INVALID NUMBER!" << endl;
+			cout << "CHOSSE A NUMBER BETWEEN { 1 , 2 }: " ;
+			cin >> choice;
+			cout << endl;
 			switch (choice)
 			{
 			case 0:
