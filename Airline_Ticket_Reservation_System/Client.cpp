@@ -1,4 +1,5 @@
 #include "Client.h"
+using namespace std;
 
 Client::Client()
 {
@@ -13,6 +14,10 @@ Client::Client()
 		std::cout << "\n====================== PHOENIX ======================\n";
 		setFromCountry();
 		setToCountry();
+		setFlightType();
+		setPlan();
+		chooseSeat();
+
 		
 
 
@@ -162,16 +167,195 @@ void Client::setToCountry()
 
 void Client::setFlightType()
 {
-
+	int choose_type;
+	string flight_Type;
+	std::cout << "Choose your flight type : " << std::endl;
+	std::cout << "1) One-way          2) Round-trip" << std::endl;
+	std::cout << "Enter your choose : ";
+	std::cin >> choose_type;
+	if (choose_type == 1)
+	{
+		flight_Type = "One_way";
+		std::cout << "One_way" << std::endl;
+		std::cout << "\n====================== PHOENIX ======================\n";
+	}
+	else if (choose_type == 2)
+	{
+		flight_Type = "Round-trip";
+		std::cout << "Round-trip" << std::endl;
+		std::cout << "\n====================== PHOENIX ======================\n";
+	}
+	this->flight_Type = flight_Type;
 }
 
 void Client::setPlan()
 {
+      int PLAN;
+	int plan1 = 7500;
+	int plan2 = 10000;
+	int plan3 = 15000;
+	int plan4 = 25000;
+
+	if (flight_type == "One-way")
+	{
+
+		cout << "                 --> CHOOSE THE PLAN YOU WANT FOR ONE-WAY <--                " << endl << endl << endl;
+
+		cout << "   *********************************     *********************************   " << endl;
+		cout << "   *                               *     *                               *   " << endl;
+		cout << "   *           PLAN ( 1 )          *     *           PLAN ( 2 )          *   " << endl;
+		cout << "   *       { ECONOMY CLASS }       *     *   { PREMIUM ECONOMY CLASS }   *   " << endl;
+		cout << "   *                               *     *                               *   " << endl;
+		cout << "   *    7,500 LE   --->   150 $    *     *    10,000 LE   --->   200 $   *   " << endl;
+		cout << "   *                               *     *                               *   " << endl;
+		cout << "   *********************************     *********************************   " << endl << endl << endl;
+
+		cout << "   *********************************     *********************************   " << endl;
+		cout << "   *                               *     *                               *   " << endl;
+		cout << "   *           PLAN ( 3 )          *     *           PLAN ( 4 )          *   " << endl;
+		cout << "   *      { BUSINESS CLASS }       *     *        { FIRST CLASS }        *   " << endl;
+		cout << "   *                               *     *                               *   " << endl;
+		cout << "   *    15,000 LE   --->   300 $   *     *    25,000 LE  --->   500 $    *   " << endl;
+		cout << "   *                               *     *                               *   " << endl;
+		cout << "   *********************************     *********************************   " << endl << endl << endl;
+
+		cout << "Enter your plan number : ";
+		cin >> PLAN;
+		while (PLAN < 0 || PLAN > 4)
+		{
+			cout << "Invalid number, Enter your plan number again : ";
+			cin >> PLAN;
+		}
+
+		switch (PLAN)
+		{
+		case 1:
+			PLAN = plan1;
+			cout << endl << "{ ECONOMY CLASS } The price is : " << plan1 << " LE" << endl;
+			break;
+		case 2:
+			PLAN = plan2;
+			cout << endl << "{ PREMIUM ECONOMY CLASS } The price is : " << plan2 << " LE" << endl;
+			break;
+		case 3:
+			PLAN = plan3;
+			cout << endl << "{ BUSINESS CLASS } The price is : " << plan3 << " LE" << endl;
+			break;
+		case 4:
+			PLAN = plan4;
+			cout << endl << "{ PREMIUM ECONOMY CLASS } The price is : " << plan4 << " LE" << endl;
+			break;
+		default:
+			cout << "Invalid number, Please try a again" << endl;
+			cin >> PLAN;
+			break;
+		}
+	}
+	else if (flight_type == "Round-trip")
+	{
+
+	    cout << "                 --> CHOOSE THE PLAN YOU WANT FOR ROUND-TRIP <--                " << endl << endl << endl;
+	    
+	    cout << "   *********************************     *********************************   " << endl;
+	    cout << "   *                               *     *                               *   " << endl;
+	    cout << "   *           PLAN ( 1 )          *     *           PLAN ( 2 )          *   " << endl;
+	    cout << "   *       { ECONOMY CLASS }       *     *   { PREMIUM ECONOMY CLASS }   *   " << endl;
+	    cout << "   *                               *     *                               *   " << endl;
+	    cout << "   *    15,000 LE   --->   300 $   *     *    20,000 LE   --->   400 $   *   " << endl;
+	    cout << "   *                               *     *                               *   " << endl;
+	    cout << "   *********************************     *********************************   " << endl << endl << endl;
+	    
+	    cout << "   *********************************     *********************************   " << endl;
+	    cout << "   *                               *     *                               *   " << endl;
+	    cout << "   *           PLAN ( 3 )          *     *           PLAN ( 4 )          *   " << endl;
+	    cout << "   *      { BUSINESS CLASS }       *     *        { FIRST CLASS }        *   " << endl;
+	    cout << "   *                               *     *                               *   " << endl;
+	    cout << "   *    30,000 LE   --->   600 $   *     *    50,000 LE  --->  1,000 $   *   " << endl;
+	    cout << "   *                               *     *                               *   " << endl;
+	    cout << "   *********************************     *********************************   " << endl << endl << endl;
+
+        cout << "Enter your plan number : ";
+        cin >> PLAN;
+        while (PLAN < 0 || PLAN > 4)
+        {
+            cout << "Invalid number, Enter your plan number again : ";
+            cin >> PLAN;
+        }
+	    
+        switch (PLAN)
+        {
+        case 1:
+            PLAN = plan1;
+            cout << endl <<"{ ECONOMY CLASS } The price is : " << plan1 * 2 << " LE" << endl;
+            break;
+        case 2:
+            PLAN = plan2;
+            cout << endl << "{ PREMIUM ECONOMY CLASS } The price is : " << plan2 * 2 << " LE" << endl;
+            break;
+        case 3:
+            PLAN = plan3;
+            cout << endl << "{ BUSINESS CLASS } The price is : " << plan3 * 2 << " LE" << endl;
+            break;
+        case 4:
+            PLAN = plan4;
+            cout << endl << "{ PREMIUM ECONOMY CLASS } The price is : " << plan4 * 2 << " LE" << endl;
+            break;
+        default:
+            cout << "Invalid number, Please try a again" << endl;
+            cin >> PLAN;
+            break;
+        }
+	}
 	
 }
 
-void Client::chooseSeat() {
+void Client::chooseSeat()
+{
+	int seat;
+	cout << endl;
+	cout << "                             ----> CHOOSE THE SEAT YOU WANT <----                         " << endl << endl << endl;
 
+
+	cout << "   /                                                                                  \\  " << endl;
+	cout << "  /                                                                                    \\  " << endl;
+	cout << "  *                                                                                     *  " << endl;
+	cout << "  *   |             |   |             |      .      |             |   |             |   *  " << endl;
+	cout << "  *   |      1      |   |      2      |      .      |      3      |   |      4      |   *  " << endl;
+	cout << "  *   |             |   |             |      .      |             |   |             |   *  " << endl;
+	cout << "  *    \\___________/     \\___________/       .       \\___________/     \\___________/    *  " << endl;
+	cout << "  *                                                                                     *  " << endl;
+	cout << "  *                                                                                     *  " << endl;
+	cout << "  *   |             |   |             |      .      |             |   |             |   *  " << endl;
+	cout << "  *   |      5      |   |      6      |      .      |      7      |   |      8      |   *  " << endl;
+	cout << "  *   |             |   |             |      .      |             |   |             |   *  " << endl;
+	cout << "  *    \\___________/     \\___________/       .       \\___________/     \\___________/    *  " << endl;
+	cout << "  *                                                                                     *  " << endl;
+	cout << "  *                                                                                     *  " << endl;
+	cout << "  *   |             |   |             |      .      |             |   |             |   *  " << endl;
+	cout << "  *   |      9      |   |      10     |      .      |      11     |   |     12      |   *  " << endl;
+	cout << "  *   |             |   |             |      .      |             |   |             |   *  " << endl;
+	cout << "  *    \\___________/     \\___________/       .       \\___________/     \\___________/    *  " << endl;
+	cout << "  *                                                                                     *  " << endl;
+	cout << "  *                                                                                     *  " << endl;
+	cout << "  *   |             |   |             |      .      |             |   |             |   *  " << endl;
+	cout << "  *   |      13     |   |      14     |      .      |      15     |   |     16      |   *  " << endl;
+	cout << "  *   |             |   |             |      .      |             |   |             |   *  " << endl;
+	cout << "  *    \\___________/     \\___________/       .       \\___________/     \\___________/    *  " << endl;
+	cout << "  *                                                                                     *   " << endl;
+	cout << "   \\                                                                                   /  " << endl;
+	cout << "    \\                                                                                 /  " << endl << endl;
+
+	cout << "Enter your seat number : ";
+	cin >> seat;
+
+	while (seat < 0 || seat > 16)
+	{
+		cout << "SORRY, INVALID SEAT NUMBER, TRY ENTER THE SEAT NUMBER AGAIN: " << endl;
+		cin >> seat;
+	}
+	this-> seat = seat;
+	cout << "DONE, WE SAVE YOUR ANSWER" << endl << endl;
+	cout << "\n==================================== PHOENIX ====================================\n";
 }
 
 
