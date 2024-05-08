@@ -25,4 +25,6 @@ static void ExitPhoenix() {
 Manger::Manger()
 {
 
+
+
 }

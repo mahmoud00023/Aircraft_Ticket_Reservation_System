@@ -3,16 +3,42 @@
 Client::Client()
 {
 	std::cout << "====================== PHOENIX ======================\n\n";
-	setName();
-	setID();
-	setPhoneNum();
-	setFromCountry();
-	setToCountry();
 
+	setSeatsNum();
+	for (int i = 0; i < seatsNum; i++)
+	{
+		setName();
+		setID();
+		setPhoneNum();
+		std::cout << "\n====================== PHOENIX ======================\n";
+		setFromCountry();
+		setToCountry();
+		
+
+
+	}
+	
 
 }
 
+void Client::setSeatsNum()
+{
+	std::cout << "How many seats will you take: ";
+	int seatNum;
+	
 
+	do
+	{
+		std::cin >> seatNum;
+		if (seatNum < 1 || seatNum > 16) {
+			std::cout << "You should choose a number between (1-16): ";
+		}
+		else {
+			this->seatsNum = seatNum;
+		}
+	} while (seatNum < 1 || seatNum > 16);
+
+}
 
 void Client::setName()
 {
@@ -136,54 +162,18 @@ void Client::setToCountry()
 
 void Client::setFlightType()
 {
+
 }
 
 void Client::setPlan()
 {
+	
 }
 
-void Client::setChairsNum()
-{
+void Client::chooseSeat() {
+
 }
 
 
 
-std::string Client::getName()
-{
-	return std::string();
-}
 
-std::string Client::getID()
-{
-	return std::string();
-}
-
-std::string Client::getPhoneNum()
-{
-	return std::string();
-}
-
-std::string Client::getFromCountry()
-{
-	return std::string();
-}
-
-std::string Client::getToCountry()
-{
-	return std::string();
-}
-
-std::string Client::getFlightType()
-{
-	return std::string();
-}
-
-std::string Client::getPlan()
-{
-	return std::string();
-}
-
-short Client::getChairsNum()
-{
-	return 0;
-}
