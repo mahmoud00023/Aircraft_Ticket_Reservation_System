@@ -45,15 +45,15 @@ void Client::setName()
 	std::cout << "Enter your name : ";
 	std::string name;
 	std::cin >> name;
-	this->name = name;
+	this->id.push_back(name);
 }
 
 void Client::setID()
 {
 	std::cout << "Enter your ID : ";
-	std::string ID;
-	std::cin >> ID;
-	this->ID = ID;
+	std::string id;
+	std::cin >> id;
+	this->id.push_back(id);
 }
 
 void Client::setPhoneNum()
@@ -61,7 +61,7 @@ void Client::setPhoneNum()
 	std::cout << "Enter your phone number : ";
 	std::string phoneNum;
 	std::cin >> phoneNum;
-	this->phoneNum = phoneNum;
+	this->id.push_back(phoneNum);
 }
 
 void Client::setFromCountry()
@@ -89,9 +89,9 @@ void Client::setFromCountry()
 		std::cin >> fromCountryNum;
 		std::cout << std::endl;
 	}
-	this->fromCountry = availableCountries[fromCountryNum - 1];
+	this->fromCountry.push_back(availableCountries[fromCountryNum - 1]);
 
-	std::cout << fromCountry << '\n';
+	std::cout << fromCountry.back() << '\n';
 }
 
 void Client::setToCountry()
@@ -101,7 +101,7 @@ void Client::setToCountry()
 	short fromCountryIndex{};
 	for (int i = 0; i < 10; i++)
 	{
-		if (availableCountries[i] == fromCountry) {
+		if (availableCountries[i] == fromCountry.back()) {
 			fromCountryIndex = i;
 			break;
 		}
@@ -151,13 +151,13 @@ void Client::setToCountry()
 
 	// Optimizing to country number after adding reserved from country
 	if (toCountryNum >= fromCountryIndex + 1) {
-		this->toCountry = availableCountries[toCountryNum];
+		this->toCountry.push_back(availableCountries[toCountryNum]);
 	}
 	else {
-		this->toCountry = availableCountries[toCountryNum - 1];
+		this->toCountry.push_back(availableCountries[toCountryNum - 1]);
 	}
 
-	std::cout << toCountry << '\n';
+	std::cout << toCountry.back() << '\n';
 }
 
 void Client::setFlightType()
