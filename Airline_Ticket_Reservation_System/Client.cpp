@@ -389,6 +389,11 @@ void Client::homePage() {
 
 }
 
+void printTicket() {
+
+}
+
+
 // Static members difinitions
 
 int Client::seatsNum = 0;

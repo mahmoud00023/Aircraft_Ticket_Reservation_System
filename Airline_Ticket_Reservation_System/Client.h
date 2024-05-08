@@ -43,8 +43,9 @@ public:
 	void setPlan();
 	void chooseSeatPosition();
 
+	void printTicket();
 
-	// Getters
+
 
 
 	// Functions
