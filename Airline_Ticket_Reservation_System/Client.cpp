@@ -356,7 +356,7 @@ void Client::chooseSeatPosition()
 		cin >> seatPosition;
 	}
 	this->reservedSeats.push_back(seatPosition);
-	cout << "DONE, YOU HAVE BOOKES SEAT " << seatPosition << endl << endl;
+	cout << "DONE, YOU HAVE BOOKED SEAT " << seatPosition << endl << endl;
 	cout << "\n==================================== PHOENIX ====================================\n\n";
 }
 
